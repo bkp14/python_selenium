@@ -1,0 +1,11 @@
+import pytest
+from selenium import webdriver
+@pytest.fixture()
+def setup_and_teardown(request):
+    driver =webdriver.Chrome()
+    driver.get("https://tutorialsninja.com/demo/")
+    driver.maximize_window()
+    driver.implicitly_wait(5)
+    request.cls.driver=driver
+    yield
+    driver.quit()
