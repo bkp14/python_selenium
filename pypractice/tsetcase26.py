@@ -15,7 +15,7 @@ driver.get("https://automationexercise.com")
 action = ActionChains(driver)
 action.send_keys(Keys.END).perform()
 sub = driver.find_element(By.XPATH,"//h2[normalize-space()='Subscription']")
-driver.execute_script("return argument[0].innerText;",)
+driver.execute_script("return argument[0].innerText;",sub)
 action.send_keys(Keys.HOME).perform()
 
 
