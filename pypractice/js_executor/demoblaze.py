@@ -33,7 +33,11 @@ driver.execute_script("window.scrollTo(0,0)")
 time.sleep(5)
 
 #scrolltoelement
-iphone= driver.find_element(By.XPATH,"//a[normalize-space()='Iphone 6 32gb']")
+iphone = WebDriverWait(driver, 20).until(
+    EC.visibility_of_element_located(
+        (By.XPATH, "//a[normalize-space()='Iphone 6 32gb']")
+    )
+)
 driver.execute_script("arguments[0].scrollIntoView();",iphone)
 time.sleep(5)
 
