@@ -22,7 +22,7 @@ def setup_and_teardown():
 
 def test_validlogin(setup_and_teardown):
    driver.find_element(By.ID, "login2").click()
-   valid_list= excelReader.get_data("Excelfiles/login_Data.xlsx","login")
+   valid_list= excelReader.get_data(r"E:\py_selenium\py_project\pytest_framework\Data_driven_Excel\Excelfiles\login_Data.xlsx","login")
    wait.until(EC.visibility_of_element_located((By.ID, "loginusername")) ).send_keys(valid_list[0][0])
    log.info("username has been entered")
        
@@ -39,7 +39,7 @@ def test_validlogin(setup_and_teardown):
    log.info("valid test completed")
 def test_invalidlogin(setup_and_teardown):
    driver.find_element(By.ID, "login2").click()
-   valid_list= excelReader.get_data("Excelfiles/login_Data.xlsx","login")
+   valid_list= excelReader.get_data(r"E:\py_selenium\py_project\pytest_framework\Data_driven_Excel\Excelfiles\login_Data.xlsx","login")
    wait.until(EC.visibility_of_element_located((By.ID, "loginusername")) ).send_keys(valid_list[1][0])
    log.info("username has been entered")
         
