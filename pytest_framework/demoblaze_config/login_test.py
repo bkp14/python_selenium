@@ -15,12 +15,16 @@ class TestLogin:
         password = get_config("login", "pword")
 
         
+        # open login modal
         self.driver.find_element(By.ID, "login2").click()
 
-        
-        self.wait.until(
-            EC.visibility_of_element_located((By.ID, "loginusername"))
-        ).send_keys(username)
+# wait for modal to fully appear
+        self.wait.until( EC.visibility_of_element_located((By.ID, "logInModal")))
+
+# now wait for username field
+        username_field = self.wait.until( EC.element_to_be_clickable((By.ID, "loginusername")))
+        username_field.clear()
+        username_field.send_keys(username)
 
         
         self.driver.find_element(By.ID, "loginpassword").send_keys(password)
