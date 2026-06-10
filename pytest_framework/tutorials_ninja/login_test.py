@@ -11,7 +11,7 @@ log = logCreator.log_generator()
 
 @pytest.mark.usefixtures("setup_tearDown")
 class Testlogin:
-
+    @pytest.mark.order(2)
     def test_valid_login(self):
 
         data = excelReader.get_data(r"E:\\py_selenium\py_project\\pytest_framework\\tutorials_ninja\\Excelfiles\\login_data.xlsx","Sheet1")
@@ -31,7 +31,7 @@ class Testlogin:
 
         assert my_account_text == "My Account"
 
-
+    @pytest.mark.order(1)
     def test_invalid_login(self):
 
         data = excelReader.get_data(r"E:\\py_selenium\py_project\\pytest_framework\\tutorials_ninja\\Excelfiles\\login_data.xlsx","Sheet1")
