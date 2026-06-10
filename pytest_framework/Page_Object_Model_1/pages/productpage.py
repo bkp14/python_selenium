@@ -9,4 +9,5 @@ class productpage:
     shop=(By.XPATH,"//span[text()='Shopping Cart']")
     def add_prod_cart(self):
         self.wait.until(EC.element_to_be_clickable(self.add_to_cart_but)).click()
-        self.wait.until(EC.element_to_be_clickable(self.shop)).click()
+        ele=self.wait.until(EC.element_to_be_clickable(self.shop))
+        self.driver.execute_script("arguments[0].click();",ele)

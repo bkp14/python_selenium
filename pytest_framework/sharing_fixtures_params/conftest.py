@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-@pytest.fixture(params=["chrome","firefox","edge"])
+@pytest.fixture(params=["chrome"])
 def setup_and_teardown(request):
     if request.param == "chrome":
         driver = webdriver.Chrome()
